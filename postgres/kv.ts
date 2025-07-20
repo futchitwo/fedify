@@ -117,7 +117,7 @@ export class PostgresKvStore implements KvStore {
       tableName: this.#tableName,
     });
     await this.#sql`
-      CREATE UNLOGGED TABLE IF NOT EXISTS ${this.#sql(this.#tableName)} (
+      CREATE TABLE IF NOT EXISTS ${this.#sql(this.#tableName)} (
         key text[] PRIMARY KEY,
         value jsonb NOT NULL,
         created timestamp with time zone DEFAULT CURRENT_TIMESTAMP,
